@@ -88,10 +88,10 @@ struct FileInfo {
   bool isDirectory() const;
   
   bool operator==(const FileInfo& rhs) const {
-    return (device == rhs.device &&
-            inode == rhs.inode &&
+    return (/* device == rhs.device &&
+            inode == rhs.inode && */
             size == rhs.size &&
-            modTime == rhs.modTime);
+            modTime.seconds == rhs.modTime.seconds);
   }
   bool operator!=(const FileInfo& rhs) const {
     return !(*this == rhs);
